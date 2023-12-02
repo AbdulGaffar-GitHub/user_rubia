@@ -22,6 +22,7 @@ class AddContact extends StatefulWidget {
     this.DateOfBirth,
     this.gender,
     this.address,
+    this.allContacts,
   }) : super(key: key);
   var firstName;
   var lastName;
@@ -29,6 +30,7 @@ class AddContact extends StatefulWidget {
   final DateOfBirth;
   var gender;
   var address;
+  final allContacts;
 
   @override
   _AddContactState createState() => _AddContactState();
@@ -100,7 +102,7 @@ class _AddContactState extends State<AddContact> {
                                       boxShadow: [tBoxShadow]),
                                   child: Column(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       SizedBox(
@@ -120,7 +122,7 @@ class _AddContactState extends State<AddContact> {
                                             return null;
                                           }
                                         },
-                                        hinttext: "Eg : Avinash naidu",
+                                        hinttext: "Enter Your Your Full Name",
                                         controller: _firstNameController,
                                       ),
                                       SizedBox(
@@ -135,7 +137,7 @@ class _AddContactState extends State<AddContact> {
                                       TextFieldWidgets(
                                         validator: (value) {
                                           final RegExp regex =
-                                              RegExp(r'^[6-9]');
+                                          RegExp(r'^[6-9]');
                                           if (value!.isEmpty) {
                                             return 'mobile_number_can\'t_be_empty'
                                                 .tr;
@@ -146,13 +148,21 @@ class _AddContactState extends State<AddContact> {
                                                 .tr;
                                           } else if (!regex.hasMatch(value)) {
                                             return 'invalid_number'.tr;
+                                          } else if (widget.allContacts
+                                              .any((details) {
+                                            return details['phone_number']
+                                                .toString() ==
+                                                value;
+                                          })) {
+                                            return 'Phone Number exists'.tr;
                                           }
+                                          return null;
                                         },
                                         inputFormater: <TextInputFormatter>[
                                           FilteringTextInputFormatter.allow(
                                               RegExp(
-                                            "[0-9]",
-                                          )),
+                                                "[0-9]",
+                                              )),
                                           LengthLimitingTextInputFormatter(10),
                                         ],
                                         keyboardTyp: TextInputType.number,
@@ -249,7 +259,7 @@ class _AddContactState extends State<AddContact> {
                       };
                       print(param);
                       var res =
-                          await UserAPI().addEmergencyContacts(context, param);
+                      await UserAPI().addEmergencyContacts(context, param);
                       if (res != null && res['status'] == 'OK') {
                         Twl.navigateTo(context, EmergencyContact());
                       } else {

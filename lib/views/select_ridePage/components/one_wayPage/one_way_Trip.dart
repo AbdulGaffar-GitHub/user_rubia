@@ -32,7 +32,7 @@ class _OneWayTripState extends State<OneWayTrip> {
           margin: EdgeInsets.symmetric(horizontal: 3.5.w, vertical: 2.h),
           padding: EdgeInsets.symmetric(horizontal: 3.5.w, vertical: 0.h),
           decoration: BoxDecoration(
-            color: Colors.orange,
+            color: tWhite,
             boxShadow: [tBoxShadow],
             borderRadius: BorderRadius.circular(8),
           ),
@@ -79,7 +79,7 @@ class _OneWayTripState extends State<OneWayTrip> {
                               color: selectedIndex == index
                                   ? tPrimaryColor
                                   : tWhite,
-                              width: 2)),
+                              width: 3)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
