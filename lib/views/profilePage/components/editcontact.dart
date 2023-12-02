@@ -25,6 +25,7 @@ class EditContact extends StatefulWidget {
     this.gender,
     this.address,
     this.contactListDetais,
+    this.allContacts,
   }) : super(key: key);
   var firstName;
   var lastName;
@@ -33,6 +34,7 @@ class EditContact extends StatefulWidget {
   var gender;
   var address;
   final contactListDetais;
+  final allContacts;
 
   @override
   _EditContactState createState() => _EditContactState();
@@ -50,6 +52,9 @@ class _EditContactState extends State<EditContact> {
     _relationController.text =
         widget.contactListDetais['relationship'].toString();
     _phoneController.text = widget.contactListDetais['phone_number'].toString();
+    print(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
+    print(widget.allContacts);
+    print(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
   }
 
   final _formKey = new GlobalKey<FormState>();
@@ -126,7 +131,7 @@ class _EditContactState extends State<EditContact> {
                                       return null;
                                     }
                                   },
-                                  hinttext: "Eg : Avinash naidu",
+                                  hinttext: "E.g : John Doe",
                                   controller: _firstNameController,
                                 ),
                                 SizedBox(height: 2.h),
@@ -146,7 +151,18 @@ class _EditContactState extends State<EditContact> {
                                           .tr;
                                     } else if (!regex.hasMatch(value)) {
                                       return 'invalid_number'.tr;
+                                    } else if ((widget.allContacts
+                                        .any((details) {
+                                      return details['phone_number']
+                                          .toString() ==
+                                          value;
+                                    })) &&
+                                        (value !=
+                                            widget.contactListDetais[
+                                            'phone_number'])) {
+                                      return 'Phone Number exists'.tr;
                                     }
+                                    return null;
                                   },
                                   inputFormater: [
                                     LengthLimitingTextInputFormatter(10),

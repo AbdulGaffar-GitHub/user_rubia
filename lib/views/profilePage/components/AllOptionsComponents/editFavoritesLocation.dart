@@ -18,11 +18,11 @@ import 'package:sizer/sizer.dart';
 class EditFavouritesLocation extends StatefulWidget {
   EditFavouritesLocation(
       {Key? key,
-      this.editfavoriteData,
-      this.editmapdata,
-      this.favlat,
-      this.favlng,
-      this.favpincode})
+        this.editfavoriteData,
+        this.editmapdata,
+        this.favlat,
+        this.favlng,
+        this.favpincode})
       : super(key: key);
   final editfavoriteData;
   final editmapdata;
@@ -100,7 +100,7 @@ class _EditFavouritesLocationState extends State<EditFavouritesLocation> {
                                       boxShadow: [tBoxShadow]),
                                   child: Column(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       SizedBox(
@@ -121,7 +121,7 @@ class _EditFavouritesLocationState extends State<EditFavouritesLocation> {
                                             return null;
                                           }
                                         },
-                                        hinttext: "Eg : Avinash naidu",
+                                        hinttext: "E.g : John Doe",
                                         controller: _addressTypeController
                                           ..text = widget
                                               .editmapdata['address_type'],

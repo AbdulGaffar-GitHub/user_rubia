@@ -6,6 +6,7 @@ import 'package:base_project_flutter/api_services/userApi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 import '../../../constants/constants.dart';
 import '../../globalFuctions/globalFunctions.dart';
@@ -15,18 +16,42 @@ import '../../globalWidgets/buttonWidget.dart';
 import '../../globalWidgets/textformfieldWidget.dart';
 import '../../responsive.dart';
 import 'package:intl/intl.dart';
-
+import 'package:base_project_flutter/globalWidgets/customTextFiled.dart';
 import '../EmergencyContact/EmergencyContacts.dart';
 import 'components/referalCardView.dart';
 
 class PersonalDetails extends StatefulWidget {
-  const PersonalDetails({Key? key}) : super(key: key);
+  PersonalDetails({
+    Key? key,
+    this.details,
+  }) :
+        super(key: key);
+  var details;
+
 
   @override
   State<PersonalDetails> createState() => _PersonalDetailsState();
 }
 
+
+
 class _PersonalDetailsState extends State<PersonalDetails> {
+
+
+  // checkLoginApi() async {
+  //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  //   var check =
+  //   await UserAPI().checkApi(sharedPreferences.getString('authCode')!);
+  //   if (check != null && check['status'] == 'OK') {
+  //     setState(() {
+  //       checkDetails = check['detail'];
+  //       print('personal details........................................................');
+  //       print(checkDetails);
+  //       print('personal details........................................................');
+  //     });
+  //   }
+  // }
+
   var selectedGender;
   @override
   var gender1;
@@ -36,6 +61,30 @@ class _PersonalDetailsState extends State<PersonalDetails> {
   final TextEditingController _referralCodecontroller = TextEditingController();
   final TextEditingController _emailaddressController = TextEditingController();
   final TextEditingController _dateOfBirthController = TextEditingController();
+
+  @override
+  void initState() {
+    // checkLoginApi();
+    print('personal details........................................................');
+    print(widget.details);
+    print('personal details........................................................');
+    super.initState();
+    if(widget.details != null){
+      _firstNameController.text = widget.details['first_name'].toString();
+      _lastnameController.text = widget.details['last_name'].toString();
+      _emailaddressController.text = widget.details['email'].toString();
+      _dateOfBirthController.text = widget.details['date_of_birth'].toString();
+      if(widget.details['gender'] == 'Male'){
+        selectedGender=0;
+      }else if(widget.details['gender'] == 'Female'){
+        selectedGender=1;
+      }else if(widget.details['gender'] == 'Others'){
+        selectedGender=2;
+      }
+
+
+    }
+  }
 
   final _formKey = new GlobalKey<FormState>();
   DateTime selectedFromDate = DateTime.now();
@@ -183,6 +232,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                             TextFormFieldWidgets(
                               style: TextStyle(fontWeight: FontWeight.w600),
                               controller: _firstNameController,
+
                               // textCapitalization: TextCapitalization.words,
                               validator: (value) {
                                 if (value!.isEmpty) {
@@ -192,6 +242,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                                 }
                               },
                               keyboardTyp: TextInputType.text,
+
                               contentPadding: EdgeInsets.symmetric(
                                   vertical: 13, horizontal: 20),
 
@@ -207,7 +258,10 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                                   color: tGray,
                                   fontSize: isTab(context) ? 10.sp : 13.sp,
                                   fontWeight: FontWeight.w400),
+
+                              // initialValue: widget.details != null ? widget.details['first_name'] : null,
                             ),
+
                             SizedBox(
                               height: 3.h,
                             ),
@@ -335,7 +389,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                                       : 'dob'.tr,
                                   errorText: _dateOfBirthController.text.isEmpty
                                       ? validateDateOfBirth(
-                                          _dateOfBirthController.text)
+                                      _dateOfBirthController.text)
                                       : null,
                                   // color: isDateSelected ? tBlack : tGray,
 
@@ -469,13 +523,14 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                             "gender": selectedGender == 0
                                 ? 'Male'
                                 : selectedGender == 1
-                                    ? 'Female'
-                                    : 'Others',
+                                ? 'Female'
+                                : 'Others',
                           };
+                          Map<String, String> detailss = param;
                           var res =
-                              await UserAPI().personalDetails(context, param);
+                          await UserAPI().personalDetails(context, param);
                           if (res != null && res['status'] == 'OK') {
-                            Twl.forceNavigateTo(context, EmergencyContact());
+                            Twl.forceNavigateTo(context, EmergencyContact(detailss:detailss));
                           } else {
                             stopLoading();
                             Twl.createAlert(
