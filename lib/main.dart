@@ -25,7 +25,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
-import 'dart:io';
+
 import 'constants/imageConstant.dart';
 import 'providers/notifactionProvider.dart';
 
@@ -40,7 +40,6 @@ FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  HttpOverrides.global = MyHttpOverrides();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   if (!kIsWeb) {
     channel = AndroidNotificationChannel(
@@ -202,14 +201,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-
-class MyHttpOverrides extends HttpOverrides {
-  @override
-  HttpClient createHttpClient(SecurityContext context) {
-    return super.createHttpClient(context)
-      ..badCertificateCallback =
-          (X509Certificate cert, String host, int port) => true;
-  }
-}
-

@@ -309,7 +309,7 @@ class _RideDetailsPaymentState extends State<RideDetailsPayment> {
                           right: 5,
                           child: GestureDetector(
                             onTap: () async {
-                              print('Helpppp');
+                              print('Helppppppppp');
                               await launchURL(CHAT_LINK);
                             },
                             child: Container(
@@ -485,7 +485,7 @@ class _RideDetailsPaymentState extends State<RideDetailsPayment> {
                                                     )
                                                   : viewbookingDetails['status'] == STATUS_GO_FOR_PICKUP
                                                       ? Text(
-                                                          'Go for Pickup'.tr,
+                                                          'Driver Arriving Location'.tr,
                                                           style: TextStyle(color: tPrimaryColor, fontWeight: FontWeight.w600, fontSize: 12.sp),
                                                         )
                                                       : viewbookingDetails['status'] == STATUS_WAITING_FOR_DRIVER

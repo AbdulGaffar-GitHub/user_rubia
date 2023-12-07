@@ -152,14 +152,14 @@ class _EditContactState extends State<EditContact> {
                                     } else if (!regex.hasMatch(value)) {
                                       return 'invalid_number'.tr;
                                     } else if ((widget.allContacts
-                                        .any((details) {
-                                      return details['phone_number']
-                                          .toString() ==
-                                          value;
-                                    })) &&
+                                            .any((details) {
+                                          return details['phone_number']
+                                                  .toString() ==
+                                              value;
+                                        })) &&
                                         (value !=
                                             widget.contactListDetais[
-                                            'phone_number'])) {
+                                                'phone_number'])) {
                                       return 'Phone Number exists'.tr;
                                     }
                                     return null;

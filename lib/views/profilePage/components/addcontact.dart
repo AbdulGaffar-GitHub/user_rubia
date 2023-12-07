@@ -102,7 +102,7 @@ class _AddContactState extends State<AddContact> {
                                       boxShadow: [tBoxShadow]),
                                   child: Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       SizedBox(
@@ -137,7 +137,7 @@ class _AddContactState extends State<AddContact> {
                                       TextFieldWidgets(
                                         validator: (value) {
                                           final RegExp regex =
-                                          RegExp(r'^[6-9]');
+                                              RegExp(r'^[6-9]');
                                           if (value!.isEmpty) {
                                             return 'mobile_number_can\'t_be_empty'
                                                 .tr;
@@ -151,7 +151,7 @@ class _AddContactState extends State<AddContact> {
                                           } else if (widget.allContacts
                                               .any((details) {
                                             return details['phone_number']
-                                                .toString() ==
+                                                    .toString() ==
                                                 value;
                                           })) {
                                             return 'Phone Number exists'.tr;
@@ -161,8 +161,8 @@ class _AddContactState extends State<AddContact> {
                                         inputFormater: <TextInputFormatter>[
                                           FilteringTextInputFormatter.allow(
                                               RegExp(
-                                                "[0-9]",
-                                              )),
+                                            "[0-9]",
+                                          )),
                                           LengthLimitingTextInputFormatter(10),
                                         ],
                                         keyboardTyp: TextInputType.number,
@@ -259,7 +259,7 @@ class _AddContactState extends State<AddContact> {
                       };
                       print(param);
                       var res =
-                      await UserAPI().addEmergencyContacts(context, param);
+                          await UserAPI().addEmergencyContacts(context, param);
                       if (res != null && res['status'] == 'OK') {
                         Twl.navigateTo(context, EmergencyContact());
                       } else {

@@ -140,7 +140,8 @@ class TripOptionsProvider with ChangeNotifier {
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
+      if (permission == LocationPermission.denied ||
+          permission == LocationPermission.deniedForever) {
         // Handle the case when the user denies the location permission permanently
         return;
       }
@@ -157,7 +158,8 @@ class TripOptionsProvider with ChangeNotifier {
 
     if (placemarks.isNotEmpty) {
       Placemark placemark = placemarks.first;
-      String address = "${placemark.name}, ${placemark.subLocality}, ${placemark.locality}, ${placemark.administrativeArea}, ${placemark.country}";
+      String address =
+          "${placemark.name}, ${placemark.subLocality}, ${placemark.locality}, ${placemark.administrativeArea}, ${placemark.country}";
       print("Getting current Location " + address);
 
       Map<String, String> param = {
@@ -179,7 +181,10 @@ class TripOptionsProvider with ChangeNotifier {
 
   bool isRequiredFieldsValid() {
     if (riderType == RIDER_TYPE_ONEWAY) {
-      return pickupAddress != null && dropAddress != null && pickupAddress.isNotEmpty && dropAddress.isNotEmpty;
+      return pickupAddress != null &&
+          dropAddress != null &&
+          pickupAddress.isNotEmpty &&
+          dropAddress.isNotEmpty;
     } else if (riderType == RIDER_TYPE_ROUNDTRIP) {
       return pickupAddress != null && pickupAddress.isNotEmpty;
     }
@@ -357,7 +362,8 @@ class TripOptionsProvider with ChangeNotifier {
     outStationCharge = calculateEstimate['outStationCharge'].toString();
     additionalCharges = calculateEstimate['additionalCharges'].toString();
     estimatedDistance = calculateEstimate['estimatedDistance'].toString();
-    isNightChargeApplicable = calculateEstimate['isNightChargeApplicable'].toString();
+    isNightChargeApplicable =
+        calculateEstimate['isNightChargeApplicable'].toString();
     gst = calculateEstimate['gst'].toString();
 
     securedFee = calculateEstimate['securedFee'].toString();
@@ -431,7 +437,8 @@ class TripOptionsProvider with ChangeNotifier {
     if (usageHours != 0) {
       isLoading = true;
       // Make the API request with the 'usage_hours' parameter
-      var response = await ServicesAPI().getEstimate(context, param, isSaveBooking);
+      var response =
+          await ServicesAPI().getEstimate(context, param, isSaveBooking);
       if (response['status'] == 'OK') {
         print(" i am hereeee");
         isLoading = false;
@@ -767,7 +774,8 @@ class TripOptionsProvider with ChangeNotifier {
     }, SetOptions(merge: true));
     // Send Notification to Skipper
 
-    NotificationController.sendNotification("Hey, You got a new Ride request", "New ride request", data['deviceToken']);
+    NotificationController.sendNotification("Hey, You got a new Ride request",
+        "New ride request", data['deviceToken']);
     notifyListeners();
   }
 
@@ -942,7 +950,8 @@ class TripOptionsProvider with ChangeNotifier {
   // }
 
   LatLng _sourceLatLng = LatLng(42.747932, -71.167889); // Default initial value
-  LatLng _destinationLatLng = LatLng(17.5209327, 78.34424159999999); // Default initial value
+  LatLng _destinationLatLng =
+      LatLng(17.5209327, 78.34424159999999); // Default initial value
 
   LatLng get sourceLatLng => _sourceLatLng;
   LatLng get destinationLatLng => _destinationLatLng;
@@ -971,6 +980,10 @@ class TripOptionsProvider with ChangeNotifier {
   Stream<Map<String, dynamic>> getDriverLatLngStream(String driverId) {
     print('driverId');
     print(driverId);
-    return FirebaseFirestore.instance.collection('skippers').doc(driverId).snapshots().map((snapshot) => snapshot.data() ?? {});
+    return FirebaseFirestore.instance
+        .collection('skippers')
+        .doc(driverId)
+        .snapshots()
+        .map((snapshot) => snapshot.data() ?? {});
   }
 }

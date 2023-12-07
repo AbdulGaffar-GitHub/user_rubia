@@ -47,7 +47,7 @@ class _OtppageState extends State<Otppage> {
 
   @override
   void dispose() {
-   // _otpCodeController.dispose();
+    _otpCodeController.dispose();
     super.dispose();
   }
 

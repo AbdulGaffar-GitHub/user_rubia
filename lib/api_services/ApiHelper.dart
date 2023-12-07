@@ -29,12 +29,12 @@ class ApiHelper {
         jsonResponse = value.toString();
 
         var jsonMap = json.decode(jsonResponse);
-         print("json data $jsonMap");
+        // print(jsonMap);
 
         return jsonMap;
       } else {
         Twl.errorHandler(context, response.statusCode);
-        print("res from post: ${response.reasonPhrase}");
+        print(response.reasonPhrase);
       }
     } on SocketException {
       print("error");

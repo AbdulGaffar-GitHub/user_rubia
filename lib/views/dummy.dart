@@ -413,8 +413,6 @@ class _ClockState extends State<Clock> {
                                             tripOptionsProvider.dropAddress,
                                         'coupon_code':
                                             tripOptionsProvider.couponCode,
-                                        'coupon_discount':
-                                          tripOptionsProvider.couponDiscount,
                                         'is_vehicle_damage_protection':
                                             tripOptionsProvider
                                                 .isVehicleDamageProtection,

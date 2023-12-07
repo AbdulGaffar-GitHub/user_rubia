@@ -61,7 +61,7 @@ class _OneWayTripState extends State<OneWayTrip> {
                       setState(() {
                         vehicleStatus = TRIP_TYPE_OUTSTATION;
                       });
-                      print('vehicleStatussss');
+                      print('vehicleStatus');
                       print(vehicleStatus);
                       print('vehicleStatus');
                     }
@@ -79,7 +79,7 @@ class _OneWayTripState extends State<OneWayTrip> {
                               color: selectedIndex == index
                                   ? tPrimaryColor
                                   : tWhite,
-                              width: 3)),
+                              width: 2)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,

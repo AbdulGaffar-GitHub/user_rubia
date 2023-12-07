@@ -25,7 +25,7 @@ class PersonalDetails extends StatefulWidget {
     Key? key,
     this.details,
   }) :
-        super(key: key);
+  super(key: key);
   var details;
 
 
@@ -389,7 +389,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                                       : 'dob'.tr,
                                   errorText: _dateOfBirthController.text.isEmpty
                                       ? validateDateOfBirth(
-                                      _dateOfBirthController.text)
+                                          _dateOfBirthController.text)
                                       : null,
                                   // color: isDateSelected ? tBlack : tGray,
 
@@ -523,12 +523,12 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                             "gender": selectedGender == 0
                                 ? 'Male'
                                 : selectedGender == 1
-                                ? 'Female'
-                                : 'Others',
+                                    ? 'Female'
+                                    : 'Others',
                           };
                           Map<String, String> detailss = param;
                           var res =
-                          await UserAPI().personalDetails(context, param);
+                              await UserAPI().personalDetails(context, param);
                           if (res != null && res['status'] == 'OK') {
                             Twl.forceNavigateTo(context, EmergencyContact(detailss:detailss));
                           } else {

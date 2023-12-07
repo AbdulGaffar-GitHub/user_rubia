@@ -25,7 +25,7 @@ class ServicesAPI {
 
     Map<String, String> params = param;
     var response = await ApiHelper().getTypePost(context, url, params);
-    print("get estim res: $response");
+    print(response);
     return response;
   }
 
