@@ -61,7 +61,7 @@ class _OneWayTripState extends State<OneWayTrip> {
                       setState(() {
                         vehicleStatus = TRIP_TYPE_OUTSTATION;
                       });
-                      print('vehicleStatus');
+                      print('vehicleStatussss');
                       print(vehicleStatus);
                       print('vehicleStatus');
                     }
