@@ -31,6 +31,7 @@ class Images {
   static const String SUPPORT = 'assets/icons/support.png';
   static const String TERMS_CONDITIONS = 'assets/icons/t&C.png';
   static const String PRIVACT_POLICY = 'assets/icons/PrivacyPolicy.png';
+  static const String REFUND_POLICY = 'assets/icons/refund.png';
   static const String LOG_OUT = 'assets/icons/logout.png';
   static const String UPGREEN = 'assets/icons/upaarrow.png';
   static const String DOWNRED = 'assets/icons/downarrow.png';

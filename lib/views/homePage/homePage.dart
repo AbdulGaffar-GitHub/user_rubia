@@ -333,7 +333,7 @@ class _HomePageState extends State<HomePage> {
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     var services = homeServices[index];
-                                    if (index > 3) {
+                                    if (index > 0) {
                                       return buildOthersServiceWidget(services);
                                     } else {
                                       return GestureDetector(

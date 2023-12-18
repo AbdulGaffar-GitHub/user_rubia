@@ -78,7 +78,7 @@ class _NotifactionpageState extends State<Notifactionpage> {
         return Twl.forceNavigateTo(
           context,
           BottomNavigation(
-            tabIndexId: widget.boolnotificationPage != true ? 3 : 0,
+            tabIndexId: widget.boolnotificationPage != true ? 2 : 0,
           ),
         );
       },
@@ -93,7 +93,7 @@ class _NotifactionpageState extends State<Notifactionpage> {
                   ? Twl.forceNavigateTo(
                       context,
                       BottomNavigation(
-                        tabIndexId: 3,
+                        tabIndexId: 2,
                       ),
                     )
                   : Twl.forceNavigateTo(

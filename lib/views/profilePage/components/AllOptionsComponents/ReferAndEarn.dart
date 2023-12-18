@@ -72,7 +72,7 @@ class _ReferAndEarnState extends State<ReferAndEarn> {
         return Twl.forceNavigateTo(
             context,
             BottomNavigation(
-              tabIndexId: 3,
+              tabIndexId: 2,
             ));
       },
       child: Scaffold(
@@ -86,7 +86,7 @@ class _ReferAndEarnState extends State<ReferAndEarn> {
                 Twl.forceNavigateTo(
                     context,
                     BottomNavigation(
-                      tabIndexId: 3,
+                      tabIndexId: 2,
                     ));
               },
               child: Padding(

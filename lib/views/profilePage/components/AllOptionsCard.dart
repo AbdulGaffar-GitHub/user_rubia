@@ -64,28 +64,28 @@ class _AllOptionsCardState extends State<AllOptionsCard> {
                       style: TextStyle(color: tSecondaryColor),
                     ),
                   ),
-                  ListTile(
-                    onTap: () {
-                      Twl.navigateTo(
-                          context,
-                          BottomNavigation(
-                            tabIndexId: 2,
-                          ));
-                    },
-                    leading: Image.asset(
-                      Images.WALLET1,
-                      scale: 3.5,
-                    ),
-                    title: Text(
-                      'wallet'.tr,
-                      style: TextStyle(color: tSecondaryColor),
-                    ),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      color: tWhite,
-                      size: 20,
-                    ),
-                  ),
+                  // ListTile(
+                  //   onTap: () {
+                  //     Twl.navigateTo(
+                  //         context,
+                  //         BottomNavigation(
+                  //           tabIndexId: 2,
+                  //         ));
+                  //   },
+                  //   leading: Image.asset(
+                  //     Images.WALLET1,
+                  //     scale: 3.5,
+                  //   ),
+                  //   title: Text(
+                  //     'wallet'.tr,
+                  //     style: TextStyle(color: tSecondaryColor),
+                  //   ),
+                  //   trailing: Icon(
+                  //     Icons.arrow_forward_ios,
+                  //     color: tWhite,
+                  //     size: 20,
+                  //   ),
+                  // ),
                   ListTile(
                     onTap: () {
                       // Twl.navigateTo(context, ReferAndEarn());

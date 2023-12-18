@@ -105,7 +105,7 @@ class _ReviewsViewState extends State<ReviewsView> {
         return Twl.forceNavigateTo(
             context,
             BottomNavigation(
-              tabIndexId: 3,
+              tabIndexId: 2,
             ));
       },
       child: Scaffold(
@@ -117,7 +117,7 @@ class _ReviewsViewState extends State<ReviewsView> {
                 Twl.forceNavigateTo(
                     context,
                     BottomNavigation(
-                      tabIndexId: 3,
+                      tabIndexId: 2,
                     ));
               },
               child: Container(

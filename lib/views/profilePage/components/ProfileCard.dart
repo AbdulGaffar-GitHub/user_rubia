@@ -119,7 +119,7 @@ class _ProfileCardState extends State<ProfileCard> {
       Twl.forceNavigateTo(
           context,
           BottomNavigation(
-            tabIndexId: 3,
+            tabIndexId: 2,
           ));
     }
   }

@@ -85,7 +85,7 @@ class _EmergencyContactState extends State<EmergencyContact> {
         return Twl.forceNavigateTo(
             context,
             BottomNavigation(
-              tabIndexId: 3,
+              tabIndexId: 2,
             ));
       },
       child: Scaffold(
@@ -98,7 +98,7 @@ class _EmergencyContactState extends State<EmergencyContact> {
                 Twl.forceNavigateTo(
                     context,
                     BottomNavigation(
-                      tabIndexId: 3,
+                      tabIndexId: 2,
                     ));
               },
               child: Padding(

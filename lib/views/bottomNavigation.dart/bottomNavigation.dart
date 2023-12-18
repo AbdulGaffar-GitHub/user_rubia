@@ -110,15 +110,15 @@ class _BottomNavigationState extends State<BottomNavigation> {
             Images.BOOKINGS,
             width: isTab(context) ? 38 : 25,
           );
-    Image orders(int index) => tabIndexs == index
-        ? Image.asset(
-            Images.SELECT_WALLET,
-            width: isTab(context) ? 40 : 22,
-          )
-        : Image.asset(
-            Images.WALLETS,
-            width: isTab(context) ? 40 : 22,
-          );
+    // Image orders(int index) => tabIndexs == index
+    //     ? Image.asset(
+    //         Images.SELECT_WALLET,
+    //         width: isTab(context) ? 40 : 22,
+    //       )
+    //     : Image.asset(
+    //         Images.WALLETS,
+    //         width: isTab(context) ? 40 : 22,
+    //       );
     Image profile(int index) => tabIndexs == index
         ? Image.asset(
             Images.SELECT_PROFILE,
@@ -134,10 +134,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
             ? Twl.willpopAlert(context)
             : tabIndexs == 1
                 ? Twl.forceNavigateTo(context, BottomNavigation(tabIndexId: 0))
-                : tabIndexs == 2
-                    ? Twl.forceNavigateTo(
-                        context, BottomNavigation(tabIndexId: 0))
-                    : tabIndexs == 3
+                // : tabIndexs == 2
+                //     ? Twl.forceNavigateTo(
+                //         context, BottomNavigation(tabIndexId: 0))
+                    : tabIndexs == 2
                         ? Twl.forceNavigateTo(
                             context, BottomNavigation(tabIndexId: 0))
                         : null,
@@ -150,7 +150,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                 children: [
                   HomePage(),
                   BookingPageView(),
-                  WalletPage(selectedType: widget.selectedType),
+                  // WalletPage(selectedType: widget.selectedType),
                   ProfilePageView(),
                   // Darwer(),
                 ],
@@ -178,10 +178,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
                 // icon: Icon(Icons.history_sharp),
                 label: 'bookings'.tr,
               ),
-              _bottomNavigationBarItem(
-                icon: orders(2),
-                label: 'wallet'.tr,
-              ),
+              // _bottomNavigationBarItem(
+              //   icon: orders(2),
+              //   label: 'wallet'.tr,
+              // ),
               _bottomNavigationBarItem(
                 icon: profile(3),
                 label: 'profile'.tr,

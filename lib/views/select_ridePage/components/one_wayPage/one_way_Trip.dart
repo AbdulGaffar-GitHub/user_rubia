@@ -72,7 +72,9 @@ class _OneWayTripState extends State<OneWayTrip> {
                     child: Container(
                       width: 40.w,
                       decoration: BoxDecoration(
-                          color: tWhite,
+                          color: selectedIndex == index
+                              ? tPrimaryColor
+                              : tWhite,
                           boxShadow: [tBoxShadow],
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(
@@ -93,7 +95,10 @@ class _OneWayTripState extends State<OneWayTrip> {
                           ),
                           Text(destinationText[index],
                               style: GoogleFonts.mulish(
-                                  color: tDarkNavyblue,
+                                  color: selectedIndex == index
+                                      ? tWhite
+                                      : tDarkNavyblue,
+                                  // color: tDarkNavyblue,
                                   fontWeight: FontWeight.w800,
                                   fontSize: isTab(context) ? 10.sp : 13.sp)),
                         ],

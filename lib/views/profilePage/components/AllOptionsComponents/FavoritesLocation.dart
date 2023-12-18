@@ -63,7 +63,7 @@ class _FavouriteLocationState extends State<FavouriteLocation> {
         return Twl.forceNavigateTo(
             context,
             BottomNavigation(
-              tabIndexId: 3,
+              tabIndexId: 2,
             ));
       },
       child: Scaffold(
@@ -77,7 +77,7 @@ class _FavouriteLocationState extends State<FavouriteLocation> {
                   Twl.forceNavigateTo(
                       context,
                       BottomNavigation(
-                        tabIndexId: 3,
+                        tabIndexId: 2,
                       ));
                 },
                 child: Padding(

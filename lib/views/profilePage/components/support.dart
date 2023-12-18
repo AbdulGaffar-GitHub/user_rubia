@@ -27,7 +27,7 @@ class _SupportState extends State<Support> {
         return Twl.forceNavigateTo(
             context,
             BottomNavigation(
-              tabIndexId: 3,
+              tabIndexId: 2,
             ));
       },
       child: Scaffold(
@@ -50,7 +50,7 @@ class _SupportState extends State<Support> {
                 Twl.forceNavigateTo(
                     context,
                     BottomNavigation(
-                      tabIndexId: 3,
+                      tabIndexId: 2,
                     ));
               },
               child: Padding(
