@@ -1,7 +1,5 @@
 // Base Url
-// const String apiBaseUrl = 'https://system.rubia.services/api';
-const String apiBaseUrl = 'https://rubiaservices.org/app/api/';
-
+const String apiBaseUrl = 'https://system.rubia.services/api';
 
 //Basic Login
 const String SEND_OTP = '/user/send-otp';
